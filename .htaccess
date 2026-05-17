@@ -1,0 +1,43 @@
+DirectoryIndex index.php
+
+# Без листинга каталогов
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # ЧПУ
+  RewriteRule ^sitemap\.xml$ includes/sitemap.php [L]
+  RewriteRule ^robots\.txt$ includes/robots.php [L]
+  RewriteRule ^services/?$ includes/services.php [L]
+  RewriteRule ^reviews/?$ includes/reviews.php [L]
+  RewriteRule ^install/?$ install/install.php [L]
+
+  # Закрыть служебные каталоги при прямом URL
+  RewriteRule ^(?:lib|settings|database|includes/(?:content|partials))(/|$) - [F,L]
+</IfModule>
+
+# Не отдавать служебные файлы из корня
+<FilesMatch "(?i)\.(sql|md|log|env|ini|yml|yaml|zip)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+</IfModule>

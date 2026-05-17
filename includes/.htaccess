@@ -1,0 +1,34 @@
+<IfModule mod_authz_core.c>
+  <Files "sitemap.php">
+    Require all granted
+  </Files>
+  <Files "robots.php">
+    Require all granted
+  </Files>
+  <Files "services.php">
+    Require all granted
+  </Files>
+  <Files "reviews.php">
+    Require all granted
+  </Files>
+  <FilesMatch "\.php$">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+  <Files "sitemap.php">
+    Allow from all
+  </Files>
+  <Files "robots.php">
+    Allow from all
+  </Files>
+  <Files "services.php">
+    Allow from all
+  </Files>
+  <Files "reviews.php">
+    Allow from all
+  </Files>
+  <FilesMatch "\.php$">
+    Deny from all
+  </FilesMatch>
+</IfModule>

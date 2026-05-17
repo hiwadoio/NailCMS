@@ -1,0 +1,4 @@
+settings/admin.php
+settings/db.php
+settings/install.lock
+*.zip

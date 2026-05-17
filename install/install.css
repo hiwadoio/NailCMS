@@ -1,0 +1,254 @@
+:root {
+  --install-bg: #f4f7ef;
+  --install-card: #fff;
+  --install-text: #1a2414;
+  --install-muted: #5c6b52;
+  --install-accent: #6b8f3c;
+  --install-accent-hover: #5a7a32;
+  --install-border: #d8e2cc;
+  --install-danger: #b42318;
+  --install-radius: 12px;
+  --install-shadow: 0 12px 40px rgba(26, 36, 20, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body.install-body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--install-text);
+  background: linear-gradient(160deg, #eef5e4 0%, var(--install-bg) 45%, #f8faf5 100%);
+  line-height: 1.5;
+}
+
+.install-wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.install-card {
+  background: var(--install-card);
+  border: 1px solid var(--install-border);
+  border-radius: var(--install-radius);
+  box-shadow: var(--install-shadow);
+  padding: 1.75rem 1.5rem;
+}
+
+.install-header {
+  margin-bottom: 1.5rem;
+}
+
+.install-header h1 {
+  margin: 0 0 0.35rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.install-header p {
+  margin: 0;
+  color: var(--install-muted);
+  font-size: 0.95rem;
+}
+
+.install-steps {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.install-step {
+  flex: 1;
+  min-width: 4.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--install-muted);
+  padding: 0.35rem 0.25rem;
+  border-bottom: 2px solid var(--install-border);
+}
+
+.install-step.is-active {
+  color: var(--install-accent);
+  border-color: var(--install-accent);
+  font-weight: 600;
+}
+
+.install-step.is-done {
+  color: var(--install-text);
+  border-color: #a8c47a;
+}
+
+.install-alert {
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.install-alert--error {
+  background: #fef3f2;
+  border: 1px solid #fecdca;
+  color: var(--install-danger);
+}
+
+.install-alert--success {
+  background: #ecfdf3;
+  border: 1px solid #abefc6;
+  color: #067647;
+}
+
+.install-alert--warn {
+  background: #fffaeb;
+  border: 1px solid #fedf89;
+  color: #b54708;
+}
+
+.install-field {
+  margin-bottom: 1rem;
+}
+
+.install-field label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.install-field input,
+.install-field textarea,
+.install-field select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--install-border);
+  border-radius: 8px;
+  font: inherit;
+  background: #fff;
+}
+
+.install-field input:focus,
+.install-field textarea:focus {
+  outline: 2px solid rgba(107, 143, 60, 0.35);
+  border-color: var(--install-accent);
+}
+
+.install-field small {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--install-muted);
+  font-size: 0.8rem;
+}
+
+.install-choice {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.install-choice label {
+  display: block;
+  padding: 1rem;
+  border: 2px solid var(--install-border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.install-choice input {
+  margin-right: 0.5rem;
+}
+
+.install-choice label:has(input:checked) {
+  border-color: var(--install-accent);
+  background: #f7fbf2;
+}
+
+.install-choice strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.install-choice span {
+  color: var(--install-muted);
+  font-size: 0.875rem;
+}
+
+.install-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+.install-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.install-btn--primary {
+  background: var(--install-accent);
+  color: #fff;
+}
+
+.install-btn--primary:hover {
+  background: var(--install-accent-hover);
+}
+
+.install-btn--secondary {
+  background: #fff;
+  color: var(--install-text);
+  border: 1px solid var(--install-border);
+}
+
+.install-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.install-list li {
+  margin-bottom: 0.35rem;
+}
+
+.install-creds {
+  background: #f7fbf2;
+  border: 1px solid var(--install-border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.9rem;
+}
+
+.install-req {
+  font-size: 0.85rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.install-req li::before {
+  margin-right: 0.35rem;
+}
+
+.install-req li.is-ok::before {
+  content: "✓";
+  color: #067647;
+}
+
+.install-req li.is-fail::before {
+  content: "✗";
+  color: var(--install-danger);
+}
